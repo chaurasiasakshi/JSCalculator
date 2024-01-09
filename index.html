@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let Calculate</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <form name="forms">
+
+            <div class="display">
+                <input type="text" name="display" id="screen" placeholder="0">
+            </div>
+
+            <div class="calc">
+                <div class="row1">
+                    <input type="button" class="btn" id="ce" value="CE"onclick="display.value = display.value.toString().slice(0,-1)">
+                    <input type="button" class="btn" value="x!"  onclick="fact()">
+                    <input type="button" class="btn" value="(" onclick="display.value += '('">
+                    <input type="button" class="btn" value=")" onclick="display.value += ')'">
+                    <input type="button" class="btn"  value="/" id="ce" onclick="display.value += '/'" >
+                    <input type="button" class="btn" id="ce" value="AC"  onclick="display.value = ''">
+                </div> 
+                <div class="row2">
+                    <input type="button" class="btn" value="sin" id="sin" onclick="sine()">
+                    <input type="button" class="btn" value="pi" onclick="pie()">
+                    <input type="button" class="btn" value="7" onclick="display.value += '7'">
+                    <input type="button" class="btn" value="8" onclick="display.value += '8'">
+                    <input type="button" class="btn" value="9" onclick="display.value += '9'">
+                    <input type="button" class="btn" value="+" id="ce" onclick="display.value += '+'">
+                </div>
+                <div class="row3">
+                    <input type="button" class="btn" value="cos" onclick="cos()">
+                    <input type="button" class="btn" value="log" onclick="logarithm()">
+                    <input type="button" class="btn" value="4" onclick="display.value += '4'">
+                    <input type="button" class="btn" value="5" onclick="display.value += '5'">
+                    <input type="button" class="btn" value="6" onclick="display.value += '6'">
+                    <input type="button" class="btn" value="*" id="ce" onclick="display.value += '*'">
+                </div>
+                <div class="row4">
+                    <input type="button" class="btn" value="tan" onclick="tan( )">
+                    <input type="button" class="btn" value="&#8730" onclick="sqrt()">
+                    <input type="button" class="btn" value="1" onclick="display.value += '1'">
+                    <input type="button" class="btn" value="2" onclick="display.value += '2'">
+                    <input type="button" class="btn" value="3" onclick="display.value += '3'">
+                    <input type="button" class="btn" value="-" id="ce" onclick="display.value += '-'">
+                </div>
+                <div class="row5">
+                    <input type="button" class="btn" value="x&#178" onclick="square() ">
+                    <input type="button" class="btn" value="%" onclick="per()">
+                    <input type="button" class="btn" value="0" onclick="display.value += '0'">
+                    <input type="button" class="btn" value="." onclick="display.value += '.'">
+                    <input type="button" class="btn" value="rad" onclick="rad()">
+                   
+                    <input type="button" class="btn" value="+" id="ce" onclick="display.value += '+'">
+                    
+                    <input type="button" class="btn" id="equal" value="=" onclick="display.value = eval(display.value)">
+                
+                </div>
+            </div>
+        </form>
+    </div>
+<script>
+    function sqrt(){
+        var sq = forms.display.value;
+        var store = Math.sqrt(sq)
+    forms.display.value = store;
+    }
+    function per() {
+        var percen = forms.display.value;
+        var temp = eval(percen);
+        var aper = temp*100 + "%";
+        forms.display.value = aper;
+    }
+    function fact(){
+        var n = forms.display.value;
+        let answer = 1;
+        if (n == 0 || n == 1){
+            answer = 1;
+        }else {
+            for(var i = n; i >=1; i--){
+                answer = answer * i;
+            }
+        }
+        forms.display.value = answer;
+    }
+
+
+    function square(){
+        var squared = forms.display.value;
+        var redeemd = squared*squared;
+        forms.display.value = redmeemd;
+    }
+    
+    function logarithm(){
+        var logarit = forms.display.value;
+        var legit = Math.log10(logarit);
+        forms.display.value = legit;
+    }
+    function pie(){
+        var pi = forms.display.value;
+        var paai = pi*3.141;
+        forms.display.value = paai;
+    }
+
+    function sine(){
+        var trignometry = forms.display.value;
+        var result = Math.sin(trignometry);
+        forms.display.value = result;
+    }
+    
+    function cos(){
+        var trignometry = forms.display.value;
+        var result = Math.cos(trignometry);
+        forms.display.value = result;
+    }
+    function tan(){
+        var trignometry = forms.display.value;
+        var result = Math.tan(trignometry);
+        forms.display.value = result;
+    }
+    function rad(){
+        var radian = forms.display.value;
+        var result = radian*3.141/180
+        forms.display.value = result;
+    }
+
+</script>
+</body>
+</html>
